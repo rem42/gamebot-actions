@@ -11,12 +11,15 @@ const play = async () => {
         console.log('Game type:', game.type);
         switch (game.type) {
             case 'bananaloto':
+                console.log('go in this');
                 currentGame = new bananalotto_1.Bananalotto(process.env[game.email_secret], process.env[game.password_secret]);
                 break;
         }
         if (currentGame === undefined) {
+            console.log('currentGame === undefined');
             continue;
         }
+        console.log('currentGame.launch();');
         currentGame.launch();
     }
 };

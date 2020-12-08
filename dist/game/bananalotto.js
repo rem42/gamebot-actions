@@ -8,6 +8,7 @@ class Bananalotto {
         this.password = password;
     }
     async launch() {
+        console.log('init game');
         const credential = new bananalotto_client_1.Credentials();
         credential.email = this.email;
         credential.password = this.password;

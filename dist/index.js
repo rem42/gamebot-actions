@@ -16,6 +16,7 @@ class Bananalotto {
         this.password = password;
     }
     async launch() {
+        console.log('init game');
         const credential = new bananalotto_client_1.Credentials();
         credential.email = this.email;
         credential.password = this.password;
@@ -122,12 +123,15 @@ const play = async () => {
         console.log('Game type:', game.type);
         switch (game.type) {
             case 'bananaloto':
+                console.log('go in this');
                 currentGame = new bananalotto_1.Bananalotto(process.env[game.email_secret], process.env[game.password_secret]);
                 break;
         }
         if (currentGame === undefined) {
+            console.log('currentGame === undefined');
             continue;
         }
+        console.log('currentGame.launch();');
         currentGame.launch();
     }
 };

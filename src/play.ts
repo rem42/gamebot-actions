@@ -11,6 +11,7 @@ export const play = async () => {
         console.log('Game type:', game.type);
         switch (game.type) {
             case 'bananaloto':
+                console.log('go in this');
                 currentGame = new Bananalotto(
                     process.env[game.email_secret],
                     process.env[game.password_secret]
@@ -19,9 +20,10 @@ export const play = async () => {
         }
 
         if(currentGame === undefined) {
+            console.log('currentGame === undefined');
             continue;
         }
-
+        console.log('currentGame.launch();');
         currentGame.launch();
     }
 }

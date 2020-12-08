@@ -10,11 +10,12 @@ export class Bananalotto implements GameLaunch {
     ) { }
 
     async launch(): Promise<boolean> {
+        console.log('init game');
         const credential = new Credentials();
         credential.email = this.email;
         credential.password = this.password;
 
-        console.log('init game')
+        console.log('init game');
 
         BananalottoClient.init(credential)
             .then((client: BananalottoClient) => {

@@ -105,21 +105,6 @@ exports.run()
 
 /***/ }),
 
-/***/ 4173:
-/***/ ((__unused_webpack_module, exports) => {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.GameList = void 0;
-var GameList;
-(function (GameList) {
-    GameList["bananalotto"] = "bananalotto";
-})(GameList = exports.GameList || (exports.GameList = {}));
-//# sourceMappingURL=game.js.map
-
-/***/ }),
-
 /***/ 2221:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
@@ -129,7 +114,6 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.play = void 0;
 const config_1 = __webpack_require__(9153);
 const bananalotto_1 = __webpack_require__(3413);
-const game_1 = __webpack_require__(4173);
 const play = async () => {
     let [owner, repo] = (process.env.GITHUB_REPOSITORY || "").split("/");
     const config = await config_1.getConfig();
@@ -137,7 +121,7 @@ const play = async () => {
         let currentGame;
         console.log('Game type:', game.type);
         switch (game.type) {
-            case game_1.GameList.bananalotto:
+            case 'bananaloto':
                 currentGame = new bananalotto_1.Bananalotto(process.env[game.email_secret], process.env[game.password_secret]);
                 break;
         }

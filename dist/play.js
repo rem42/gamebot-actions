@@ -3,7 +3,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.play = void 0;
 const config_1 = require("./helpers/config");
 const bananalotto_1 = require("./game/bananalotto");
-const game_1 = require("./interface/game");
 const play = async () => {
     let [owner, repo] = (process.env.GITHUB_REPOSITORY || "").split("/");
     const config = await config_1.getConfig();
@@ -11,7 +10,7 @@ const play = async () => {
         let currentGame;
         console.log('Game type:', game.type);
         switch (game.type) {
-            case game_1.GameList.bananalotto:
+            case 'bananaloto':
                 currentGame = new bananalotto_1.Bananalotto(process.env[game.email_secret], process.env[game.password_secret]);
                 break;
         }

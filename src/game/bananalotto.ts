@@ -22,8 +22,8 @@ export class Bananalotto implements GameLaunch {
                 console.log('BananalottoClient');
                 return client.userInformation()
                     .then(user => {
-                        console.log('user', user);
-                        if(user.grid !== undefined) {
+                        console.log('user');
+                        if(user.grid === undefined) {
                             return true;
                         }
                         console.log("Number of grid already played", user.grid);

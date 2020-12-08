@@ -1,0 +1,14 @@
+name: "GameBot"
+description: "GameBot actions and status page powered entirely by GitHub"
+author: "Rémy <https://github.com/rem42>"
+inputs:
+  command:
+    required: true
+    description: "Command to run"
+    default: "play"
+runs:
+  using: "node12"
+  main: "dist/index.js"
+branding:
+  icon: "chevron-up"
+  color: "green"

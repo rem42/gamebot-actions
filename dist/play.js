@@ -1,0 +1,24 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.play = void 0;
+const config_1 = require("./helpers/config");
+const bananalotto_1 = require("./game/bananalotto");
+const game_1 = require("./interface/game");
+const play = async () => {
+    let [owner, repo] = (process.env.GITHUB_REPOSITORY || "").split("/");
+    const config = await config_1.getConfig();
+    for await (const game of config.games) {
+        let currentGame;
+        switch (game.type) {
+            case game_1.GameList.bananalotto:
+                currentGame = new bananalotto_1.Bananalotto(process.env[game.email_secret], process.env[game.password_secret]);
+                break;
+        }
+        if (currentGame === undefined) {
+            continue;
+        }
+        currentGame.launch();
+    }
+};
+exports.play = play;
+//# sourceMappingURL=play.js.map

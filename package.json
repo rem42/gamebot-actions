@@ -1,0 +1,31 @@
+{
+  "name": "gamebot-actions",
+  "version": "0.0.1",
+  "description": "Gamebot actions powered by GitHub Actions",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "package": "ncc build --source-map",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rem42/gamebot-actions.git"
+  },
+  "author": "Rémy BRUYERE <me@remy.ovh>",
+  "license": "MIT",
+  "dependencies": {
+    "@actions/core": "^1.2.6",
+    "@actions/github": "^4.0.0",
+    "bananalotto-client": "^0.0.2",
+    "fs-extra": "^9.0.1",
+    "js-yaml": "^3.14.0",
+    "kingoloto-client": "^0.0.3"
+  },
+  "devDependencies": {
+    "@types/fs-extra": "^9.0.4",
+    "@types/js-yaml": "^3.12.5",
+    "@vercel/ncc": "^0.25.1",
+    "typescript": "^4.1.2"
+  }
+}

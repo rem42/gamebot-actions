@@ -9,6 +9,7 @@ export const play = async () => {
 
     for await (const game of config.games) {
         let currentGame;
+        console.log('Game type:', game.type);
         switch (game.type) {
             case GameList.bananalotto:
                 currentGame = new Bananalotto(

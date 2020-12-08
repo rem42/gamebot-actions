@@ -12,10 +12,12 @@ export const run = async () => {
     if (!token) throw new Error("GitHub token not found");
 
     debug("Starting GameBot");
+    console.log("Starting GameBot");
 
     switch (getInput("command")) {
         case "play":
             debug("Starting play");
+            console.log("Starting play");
             return play();
     }
 };

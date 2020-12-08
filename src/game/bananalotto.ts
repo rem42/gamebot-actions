@@ -14,6 +14,8 @@ export class Bananalotto implements GameLaunch {
         credential.email = this.email;
         credential.password = this.password;
 
+        console.log('init game')
+
         BananalottoClient.init(credential)
             .then((client: BananalottoClient) => {
                 client.userInformation()

@@ -19,8 +19,8 @@ class Bananalotto {
                     return true;
                 }
                 console.log("Number of grid already played", user.grid);
-                let i = user.grid ?? 0;
-                /*do {
+                /*let i = user.grid ?? 0;
+                do {
                     client.fetchGrid()
                         .then(() => client.postGrid());
                 } while(i < 10);*/

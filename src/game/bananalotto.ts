@@ -22,7 +22,7 @@ export class Bananalotto implements GameLaunch {
                 console.log('BananalottoClient');
                 return client.userInformation()
                     .then(user => {
-                        console.log('user');
+                        console.log('user', user);
                         if(user.grid !== undefined) {
                             return true;
                         }

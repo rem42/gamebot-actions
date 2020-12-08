@@ -17,10 +17,12 @@ export class Bananalotto implements GameLaunch {
 
         console.log('init game');
 
-        BananalottoClient.init(credential)
+        await BananalottoClient.init(credential)
             .then((client: BananalottoClient) => {
+                console.log('BananalottoClient');
                 client.userInformation()
                     .then(user => {
+                        console.log('user');
                         if(user.grid !== undefined) {
                             return true;
                         }

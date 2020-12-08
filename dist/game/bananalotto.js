@@ -13,10 +13,12 @@ class Bananalotto {
         credential.email = this.email;
         credential.password = this.password;
         console.log('init game');
-        bananalotto_client_1.BananalottoClient.init(credential)
+        await bananalotto_client_1.BananalottoClient.init(credential)
             .then((client) => {
+            console.log('BananalottoClient');
             client.userInformation()
                 .then(user => {
+                console.log('user');
                 if (user.grid !== undefined) {
                     return true;
                 }

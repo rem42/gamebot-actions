@@ -24,6 +24,6 @@ export const play = async () => {
             continue;
         }
         console.log('currentGame.launch();');
-        currentGame.launch();
+        await currentGame.launch();
     }
 }

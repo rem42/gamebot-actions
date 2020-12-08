@@ -16,7 +16,7 @@ class Bananalotto {
         await bananalotto_client_1.BananalottoClient.init(credential)
             .then((client) => {
             console.log('BananalottoClient');
-            client.userInformation()
+            return client.userInformation()
                 .then(user => {
                 console.log('user');
                 if (user.grid !== undefined) {

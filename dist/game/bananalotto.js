@@ -11,6 +11,7 @@ class Bananalotto {
         const credential = new bananalotto_client_1.Credentials();
         credential.email = this.email;
         credential.password = this.password;
+        console.log('init game');
         bananalotto_client_1.BananalottoClient.init(credential)
             .then((client) => {
             client.userInformation()

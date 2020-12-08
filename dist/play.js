@@ -9,6 +9,7 @@ const play = async () => {
     const config = await config_1.getConfig();
     for await (const game of config.games) {
         let currentGame;
+        console.log('Game type:', game.type);
         switch (game.type) {
             case game_1.GameList.bananalotto:
                 currentGame = new bananalotto_1.Bananalotto(process.env[game.email_secret], process.env[game.password_secret]);

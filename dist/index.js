@@ -19,6 +19,7 @@ class Bananalotto {
         const credential = new bananalotto_client_1.Credentials();
         credential.email = this.email;
         credential.password = this.password;
+        console.log('init game');
         bananalotto_client_1.BananalottoClient.init(credential)
             .then((client) => {
             client.userInformation()
@@ -85,9 +86,11 @@ const run = async () => {
     if (!token)
         throw new Error("GitHub token not found");
     core_1.debug("Starting GameBot");
+    console.log("Starting GameBot");
     switch (core_1.getInput("command")) {
         case "play":
             core_1.debug("Starting play");
+            console.log("Starting play");
             return play_1.play();
     }
 };
@@ -132,6 +135,7 @@ const play = async () => {
     const config = await config_1.getConfig();
     for await (const game of config.games) {
         let currentGame;
+        console.log('Game type:', game.type);
         switch (game.type) {
             case game_1.GameList.bananalotto:
                 currentGame = new bananalotto_1.Bananalotto(process.env[game.email_secret], process.env[game.password_secret]);

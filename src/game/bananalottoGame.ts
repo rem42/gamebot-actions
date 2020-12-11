@@ -12,21 +12,14 @@ export class BananalottoGame implements GameLaunch {
     async launch(): Promise<boolean> {
         console.log('init game');
 
-        await Bananalotto.init(this.email, this.password)
-            .then(banane => {
-                banane.userInformations().then(user => {
-                    let gridPlayed: number = user instanceof User ? user.grid as number : 10;
-                    console.log('gridPlayed', gridPlayed);
-                    const promises = [];
-                    while (gridPlayed <= 10) {
-                        promises.push(banane.playGrid());
-                        gridPlayed++;
-                    }
-                    Promise.all(promises).then(results => {
-                        console.log(results);
-                    });
-                });
-            });
+        const bananalotto = await Bananalotto.init(this.email, this.password);
+        const user = await bananalotto.userInformations();
+        let gridPlayed: number = user instanceof User ? user.grid as number : 10;
+
+        while (gridPlayed < 10) {
+            await bananalotto.playGrid();
+            gridPlayed++;
+        }
 
         return true;
     }

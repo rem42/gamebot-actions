@@ -53,28 +53,27 @@ var BananalottoGame = /** @class */ (function () {
     }
     BananalottoGame.prototype.launch = function () {
         return __awaiter(this, void 0, void 0, function () {
+            var bananalotto, user, gridPlayed;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         console.log('init game');
-                        return [4 /*yield*/, bananalotto_client_1.Bananalotto.init(this.email, this.password)
-                                .then(function (banane) {
-                                banane.userInformations().then(function (user) {
-                                    var gridPlayed = user instanceof bananalotto_client_1.User ? user.grid : 10;
-                                    console.log('gridPlayed', gridPlayed);
-                                    var promises = [];
-                                    while (gridPlayed <= 10) {
-                                        promises.push(banane.playGrid());
-                                        gridPlayed++;
-                                    }
-                                    Promise.all(promises).then(function (results) {
-                                        console.log(results);
-                                    });
-                                });
-                            })];
+                        return [4 /*yield*/, bananalotto_client_1.Bananalotto.init(this.email, this.password)];
                     case 1:
+                        bananalotto = _a.sent();
+                        return [4 /*yield*/, bananalotto.userInformations()];
+                    case 2:
+                        user = _a.sent();
+                        gridPlayed = user instanceof bananalotto_client_1.User ? user.grid : 10;
+                        _a.label = 3;
+                    case 3:
+                        if (!(gridPlayed < 10)) return [3 /*break*/, 5];
+                        return [4 /*yield*/, bananalotto.playGrid()];
+                    case 4:
                         _a.sent();
-                        return [2 /*return*/, true];
+                        gridPlayed++;
+                        return [3 /*break*/, 3];
+                    case 5: return [2 /*return*/, true];
                 }
             });
         });

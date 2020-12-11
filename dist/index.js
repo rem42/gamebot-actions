@@ -21,10 +21,12 @@ class BananalottoGame {
             .then(banane => {
             banane.userInformations().then(user => {
                 console.log('user');
-                if (user?.grid === undefined) {
-                    return true;
+                if (user instanceof bananalotto_client_1.User) {
+                    if (user.grid === undefined) {
+                        return true;
+                    }
+                    console.log("Number of grid already played", user.grid);
                 }
-                console.log("Number of grid already played", user.grid);
             });
             // banane.playGrid();
         });

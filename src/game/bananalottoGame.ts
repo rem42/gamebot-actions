@@ -1,5 +1,5 @@
 import {GameLaunch} from "../interface/gameLaunch";
-import {Bananalotto} from "bananalotto-client";
+import {Bananalotto, User} from "bananalotto-client";
 
 export class BananalottoGame implements GameLaunch {
     static NAME: string = 'bananalotto';
@@ -16,10 +16,12 @@ export class BananalottoGame implements GameLaunch {
             .then(banane => {
                 banane.userInformations().then(user => {
                     console.log('user');
-                    if(user?.grid === undefined) {
-                        return true;
+                    if(user instanceof User) {
+                        if(user.grid === undefined) {
+                            return true;
+                        }
+                        console.log("Number of grid already played", user.grid);
                     }
-                    console.log("Number of grid already played", user.grid);
                 });
                 // banane.playGrid();
             });

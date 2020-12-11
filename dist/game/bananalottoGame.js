@@ -12,15 +12,14 @@ class BananalottoGame {
         await bananalotto_client_1.Bananalotto.init(this.email, this.password)
             .then(banane => {
             banane.userInformations().then(user => {
-                console.log('user');
                 if (user instanceof bananalotto_client_1.User) {
-                    if (user.grid === undefined) {
-                        return true;
+                    let gridPlayed = user.grid ?? 10;
+                    while (gridPlayed <= 10) {
+                        banane.playGrid();
+                        gridPlayed++;
                     }
-                    console.log("Number of grid already played", user.grid);
                 }
             });
-            // banane.playGrid();
         });
         return true;
     }

@@ -59,7 +59,9 @@ var BananalottoGame = /** @class */ (function () {
                                         promises.push(banane.playGrid());
                                         gridPlayed++;
                                     }
-                                    Promise.all(promises);
+                                    Promise.all(promises).then(function (results) {
+                                        console.log(results);
+                                    });
                                 });
                             })];
                     case 1:

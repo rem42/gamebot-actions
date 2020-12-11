@@ -22,7 +22,9 @@ export class BananalottoGame implements GameLaunch {
                         promises.push(banane.playGrid());
                         gridPlayed++;
                     }
-                    Promise.all(promises);
+                    Promise.all(promises).then(results => {
+                        console.log(results);
+                    });
                 });
             });
 

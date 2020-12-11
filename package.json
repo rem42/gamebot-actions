@@ -17,7 +17,7 @@
   "dependencies": {
     "@actions/core": "^1.2.6",
     "@actions/github": "^4.0.0",
-    "bananalotto-client": "^0.0.2",
+    "bananalotto-client": "^1.0.0",
     "fs-extra": "^9.0.1",
     "js-yaml": "^3.14.0",
     "kingoloto-client": "^0.0.3"

@@ -53,8 +53,10 @@ var BananalottoGame = /** @class */ (function () {
                                 .then(function (banane) {
                                 banane.userInformations().then(function (user) {
                                     var gridPlayed = user instanceof bananalotto_client_1.User ? user.grid : 10;
+                                    console.log('gridPlayed', gridPlayed);
                                     while (gridPlayed <= 10) {
-                                        banane.playGrid();
+                                        banane.playGrid()
+                                            .then(function (response) { return true; });
                                         gridPlayed++;
                                     }
                                 });

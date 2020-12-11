@@ -16,8 +16,10 @@ export class BananalottoGame implements GameLaunch {
             .then(banane => {
                 banane.userInformations().then(user => {
                     let gridPlayed: number = user instanceof User ? user.grid as number : 10;
+                    console.log('gridPlayed', gridPlayed);
                     while (gridPlayed <= 10) {
-                        banane.playGrid();
+                        banane.playGrid()
+                            .then(response => true);
                         gridPlayed++;
                     }
                 });

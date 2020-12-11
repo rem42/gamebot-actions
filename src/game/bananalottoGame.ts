@@ -17,11 +17,12 @@ export class BananalottoGame implements GameLaunch {
                 banane.userInformations().then(user => {
                     let gridPlayed: number = user instanceof User ? user.grid as number : 10;
                     console.log('gridPlayed', gridPlayed);
+                    const promises = [];
                     while (gridPlayed <= 10) {
-                        banane.playGrid()
-                            .then(response => true);
+                        promises.push(banane.playGrid());
                         gridPlayed++;
                     }
+                    Promise.all(promises);
                 });
             });
 

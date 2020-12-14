@@ -25,6 +25,13 @@ export const play = async () => {
                         process.env[game.password_secret] as string
                     );
                 break;
+            case 'primolotto':
+                console.log('go in this');
+                    currentGame = new KingolotoGame(
+                        process.env[game.email_secret] as string,
+                        process.env[game.password_secret] as string
+                    );
+                break;
         }
 
         if(currentGame === undefined) {

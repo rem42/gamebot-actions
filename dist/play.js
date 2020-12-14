@@ -77,6 +77,10 @@ var play = function () { return __awaiter(void 0, void 0, void 0, function () {
                         console.log('go in this');
                         currentGame = new kingolotoGame_1.KingolotoGame(process.env[game.email_secret], process.env[game.password_secret]);
                         break;
+                    case 'primolotto':
+                        console.log('go in this');
+                        currentGame = new kingolotoGame_1.KingolotoGame(process.env[game.email_secret], process.env[game.password_secret]);
+                        break;
                 }
                 if (currentGame === undefined) {
                     console.log('currentGame === undefined');

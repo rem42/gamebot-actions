@@ -57,6 +57,7 @@ var PrimolottoGame = /** @class */ (function () {
                         _a.label = 2;
                     case 2:
                         if (!canContinue) return [3 /*break*/, 4];
+                        console.log("playGrid", "canContinue", canContinue);
                         return [4 /*yield*/, primolotto.playGrid()];
                     case 3:
                         canContinue = _a.sent();
@@ -66,6 +67,7 @@ var PrimolottoGame = /** @class */ (function () {
                         _a.label = 5;
                     case 5:
                         if (!canContinue) return [3 /*break*/, 7];
+                        console.log("scratch", "canContinue", canContinue);
                         return [4 /*yield*/, primolotto.scratch()];
                     case 6:
                         canContinue = _a.sent();

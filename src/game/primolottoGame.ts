@@ -17,12 +17,14 @@ export class PrimolottoGame implements GameLaunch {
         let canContinue = true;
 
         while (canContinue) {
+            console.log("playGrid", "canContinue", canContinue);
             canContinue = await primolotto.playGrid();
         }
 
         canContinue = true;
 
         while (canContinue) {
+            console.log("scratch", "canContinue", canContinue);
             canContinue = await primolotto.scratch();
         }
 

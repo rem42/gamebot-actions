@@ -16856,7 +16856,7 @@ function readAlias(state) {
 
   alias = state.input.slice(_position, state.position);
 
-  if (!state.anchorMap.hasOwnProperty(alias)) {
+  if (!_hasOwnProperty.call(state.anchorMap, alias)) {
     throwError(state, 'unidentified alias "' + alias + '"');
   }
 
@@ -35433,7 +35433,7 @@ module.exports = (input, options) => {
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 var primolotto_1 = __webpack_require__(6374);
-exports.Primolotto = primolotto_1.Primolotto;
+Object.defineProperty(exports, "Primolotto", ({ enumerable: true, get: function () { return primolotto_1.Primolotto; } }));
 
 
 /***/ }),
@@ -35453,6 +35453,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.Primolotto = void 0;
 const axios_1 = __webpack_require__(6545);
 const tough = __webpack_require__(7372);
 const axios_cookiejar_support_1 = __webpack_require__(1168);
@@ -35536,7 +35537,7 @@ class Primolotto {
     }
     scratch() {
         return __awaiter(this, void 0, void 0, function* () {
-            const canContinue = this.scratchStart();
+            const canContinue = yield this.scratchStart();
             if (!canContinue) {
                 return false;
             }
@@ -35590,6 +35591,7 @@ exports.Primolotto = Primolotto;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.CookieExtractor = void 0;
 class CookieExtractor {
     static isContainAllCookies(cookies) {
         const cookieList = [];
@@ -35642,6 +35644,7 @@ CookieExtractor.useFullCookies = [
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.Grid = void 0;
 class Grid {
     static get generate() {
         const gridNumber = [

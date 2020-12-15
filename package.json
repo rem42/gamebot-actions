@@ -21,6 +21,7 @@
     "fs-extra": "^9.0.1",
     "js-yaml": "^3.14.0",
     "kingoloto-client": "^1.0.0",
+    "kingoloto-app-client": "^2.0.0",
     "primolotto-client": "^1.0.0"
   },
   "devDependencies": {

@@ -47,6 +47,7 @@ exports.play = void 0;
 var config_1 = require("./helpers/config");
 var bananalottoGame_1 = require("./game/bananalottoGame");
 var kingolotoGame_1 = require("./game/kingolotoGame");
+var primolottoGame_1 = require("./game/primolottoGame");
 var play = function () { return __awaiter(void 0, void 0, void 0, function () {
     var _a, owner, repo, config, _b, _c, game, currentGame, e_1_1;
     var e_1, _d;
@@ -79,7 +80,7 @@ var play = function () { return __awaiter(void 0, void 0, void 0, function () {
                         break;
                     case 'primolotto':
                         console.log('go in this');
-                        currentGame = new kingolotoGame_1.KingolotoGame(process.env[game.email_secret], process.env[game.password_secret]);
+                        currentGame = new primolottoGame_1.PrimolottoGame(process.env[game.email_secret], process.env[game.password_secret]);
                         break;
                 }
                 if (currentGame === undefined) {

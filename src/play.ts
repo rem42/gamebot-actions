@@ -1,6 +1,7 @@
 import {getConfig} from "./helpers/config";
 import {BananalottoGame} from "./game/bananalottoGame";
 import {KingolotoGame} from "./game/kingolotoGame";
+import {PrimolottoGame} from "./game/primolottoGame";
 
 export const play = async () => {
     let [owner, repo] = (process.env.GITHUB_REPOSITORY || "").split("/");
@@ -27,7 +28,7 @@ export const play = async () => {
                 break;
             case 'primolotto':
                 console.log('go in this');
-                    currentGame = new KingolotoGame(
+                    currentGame = new PrimolottoGame(
                         process.env[game.email_secret] as string,
                         process.env[game.password_secret] as string
                     );

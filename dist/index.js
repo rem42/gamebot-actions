@@ -170,6 +170,95 @@ exports.KingolotoGame = KingolotoGame;
 
 /***/ }),
 
+/***/ 2627:
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (this && this.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.PrimolottoGame = void 0;
+var primolotto_client_1 = __webpack_require__(8528);
+var PrimolottoGame = /** @class */ (function () {
+    function PrimolottoGame(email, password) {
+        this.email = email;
+        this.password = password;
+    }
+    PrimolottoGame.prototype.launch = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var primolotto, canContinue;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        console.log('init game');
+                        return [4 /*yield*/, primolotto_client_1.Primolotto.init(this.email, this.password)];
+                    case 1:
+                        primolotto = _a.sent();
+                        canContinue = true;
+                        _a.label = 2;
+                    case 2:
+                        if (!canContinue) return [3 /*break*/, 4];
+                        return [4 /*yield*/, primolotto.playGrid()];
+                    case 3:
+                        canContinue = _a.sent();
+                        return [3 /*break*/, 2];
+                    case 4:
+                        canContinue = true;
+                        _a.label = 5;
+                    case 5:
+                        if (!canContinue) return [3 /*break*/, 7];
+                        return [4 /*yield*/, primolotto.scratch()];
+                    case 6:
+                        canContinue = _a.sent();
+                        return [3 /*break*/, 5];
+                    case 7: return [2 /*return*/, true];
+                }
+            });
+        });
+    };
+    PrimolottoGame.NAME = 'primolotto';
+    return PrimolottoGame;
+}());
+exports.PrimolottoGame = PrimolottoGame;
+//# sourceMappingURL=primolottoGame.js.map
+
+/***/ }),
+
 /***/ 9153:
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
@@ -368,6 +457,7 @@ exports.play = void 0;
 var config_1 = __webpack_require__(9153);
 var bananalottoGame_1 = __webpack_require__(2332);
 var kingolotoGame_1 = __webpack_require__(4673);
+var primolottoGame_1 = __webpack_require__(2627);
 var play = function () { return __awaiter(void 0, void 0, void 0, function () {
     var _a, owner, repo, config, _b, _c, game, currentGame, e_1_1;
     var e_1, _d;
@@ -400,7 +490,7 @@ var play = function () { return __awaiter(void 0, void 0, void 0, function () {
                         break;
                     case 'primolotto':
                         console.log('go in this');
-                        currentGame = new kingolotoGame_1.KingolotoGame(process.env[game.email_secret], process.env[game.password_secret]);
+                        currentGame = new primolottoGame_1.PrimolottoGame(process.env[game.email_secret], process.env[game.password_secret]);
                         break;
                 }
                 if (currentGame === undefined) {
@@ -35330,6 +35420,246 @@ module.exports = (input, options) => {
 
 	return proxy;
 };
+
+
+/***/ }),
+
+/***/ 8528:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var primolotto_1 = __webpack_require__(6374);
+exports.Primolotto = primolotto_1.Primolotto;
+
+
+/***/ }),
+
+/***/ 6374:
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+const axios_1 = __webpack_require__(6545);
+const tough = __webpack_require__(7372);
+const axios_cookiejar_support_1 = __webpack_require__(1168);
+const grid_1 = __webpack_require__(2634);
+const cheerio = __webpack_require__(3094);
+const querystring = __webpack_require__(1191);
+const cookie_extractor_1 = __webpack_require__(918);
+class Primolotto {
+    constructor(email, password) {
+        this.email = email;
+        this.password = password;
+        this.uri = {
+            connect: '/login',
+            playUri: '/grid/confirm',
+            gridUri: '/grid',
+            scratchStart: '/scratch/play/1',
+            scratchEnd: '/scratch/end/1',
+        };
+        this.axiosInstance = axios_1.default.create({
+            baseURL: 'https://www.primolotto.com/',
+            withCredentials: true,
+        });
+        axios_cookiejar_support_1.default(this.axiosInstance);
+        this.axiosInstance.defaults.jar = new tough.CookieJar();
+    }
+    static init(email, password) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const self = new Primolotto(email, password);
+            const token = yield self.tokenConnect();
+            return yield self.connect(token);
+        });
+    }
+    playGrid() {
+        return __awaiter(this, void 0, void 0, function* () {
+            const data = yield this.fetchGridToken();
+            if (data.grid_number === undefined) {
+                return false;
+            }
+            return this.postGrid(data);
+        });
+    }
+    fetchGridToken() {
+        return __awaiter(this, void 0, void 0, function* () {
+            return yield this.axiosInstance.get(this.uri.gridUri)
+                .then(response => {
+                const $ = cheerio.load(response.data);
+                return {
+                    token: $('input[name="_token"]').val(),
+                    grid_number: $('input[name="grid_number"]').val(),
+                };
+            });
+        });
+    }
+    postGrid(grid) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const postData = querystring.stringify({
+                'grid_number': grid.grid_number,
+                '_token': grid.token,
+                'grid': grid_1.Grid.generate,
+            });
+            const axiosConfig = {
+                headers: {
+                    'Content-Length': postData.length,
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                }
+            };
+            return yield this.axiosInstance.post(this.uri.playUri, postData, axiosConfig)
+                .then(response => {
+                return response.status === 200;
+            });
+        });
+    }
+    tokenConnect() {
+        return __awaiter(this, void 0, void 0, function* () {
+            return yield this.axiosInstance.get(this.uri.connect)
+                .then(response => {
+                const $ = cheerio.load(response.data);
+                return $('input[name="_token"]').val();
+            });
+        });
+    }
+    scratch() {
+        return __awaiter(this, void 0, void 0, function* () {
+            const canContinue = this.scratchStart();
+            if (!canContinue) {
+                return false;
+            }
+            const response = yield this.axiosInstance.get(this.uri.scratchEnd);
+            return response.status === 200;
+        });
+    }
+    scratchStart() {
+        return __awaiter(this, void 0, void 0, function* () {
+            const response = yield this.axiosInstance.get(this.uri.scratchStart);
+            const $ = cheerio.load(response.data);
+            const scratchNumber = $('.scratch-progress').text().trim();
+            const found = scratchNumber.match(/5 \/ 5/);
+            return found === null;
+        });
+    }
+    connect(token) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const postData = querystring.stringify({
+                _token: token,
+                email: this.email,
+                password: this.password,
+                remember: 'on',
+            });
+            const axiosConfig = {
+                headers: {
+                    'Content-Length': postData.length,
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                }
+            };
+            yield this.axiosInstance.post(this.uri.connect, postData, axiosConfig)
+                .then(response => {
+                const cookies = response.headers['set-cookie'];
+                if (cookies !== undefined || !cookie_extractor_1.CookieExtractor.isContainAllCookies(cookies)) {
+                    this.axiosInstance.defaults.headers['Cookie'] = cookie_extractor_1.CookieExtractor.getCookiesString(cookies);
+                }
+                return response.status === 200;
+            });
+            return this;
+        });
+    }
+}
+exports.Primolotto = Primolotto;
+
+
+/***/ }),
+
+/***/ 918:
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+class CookieExtractor {
+    static isContainAllCookies(cookies) {
+        const cookieList = [];
+        cookies
+            .forEach((cookie) => {
+            cookie
+                .split(';')
+                .forEach((cook) => {
+                const parts = cook.split('=');
+                const name = parts.shift().trim();
+                const value = decodeURI(parts.join('='));
+                if (this.useFullCookies.includes(name) &&
+                    value !== 'deleted') {
+                    cookieList.push(name);
+                }
+            });
+        });
+        return cookieList.length === 4;
+    }
+    static getCookiesString(cookies) {
+        const cookieList = [];
+        cookies
+            .forEach((cookie) => {
+            cookie
+                .split(';')
+                .forEach((cook) => {
+                const parts = cook.split('=');
+                const name = parts.shift().trim();
+                const value = decodeURI(parts.join('='));
+                if (this.useFullCookies.includes(name) &&
+                    value !== 'deleted') {
+                    cookieList.push(name + '=' + value);
+                }
+            });
+        });
+        return cookieList.join('; ');
+    }
+}
+exports.CookieExtractor = CookieExtractor;
+CookieExtractor.useFullCookies = [
+    'AWSALB', 'laravel_session', 'AWSALBCORS', 'didomi_token'
+];
+
+
+/***/ }),
+
+/***/ 2634:
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+class Grid {
+    static get generate() {
+        const gridNumber = [
+            '01', '02', '03', '04', '05', '06', '07', '08', '09', '10',
+            '11', '12', '13', '14', '15', '16', '17', '18', '19', '20',
+            '21', '22', '23', '24', '25', '26', '27', '28', '29', '30',
+            '31', '32', '33', '34', '35', '36', '37', '38', '39', '40',
+            '41', '42', '43', '44', '45', '46', '47', '48', '49',
+        ];
+        const list = [];
+        do {
+            const val = gridNumber[Math.floor(Math.random() * gridNumber.length)];
+            if (!list.includes(val)) {
+                list.push(val);
+            }
+        } while (list.length !== 6);
+        return list.join('-');
+    }
+}
+exports.Grid = Grid;
 
 
 /***/ }),
